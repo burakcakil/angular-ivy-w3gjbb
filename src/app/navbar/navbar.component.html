@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="isLoggedIn$ | async as isLoggedIn">  
+  <a class="navbar-brand" href="#/">Bilim Kahramanları Yönetici Paneli</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav mr-auto" >
+	  <li class="nav-item" ng-class="{ active: isActive('/')}"><a class="nav-link" href="#">Anasayfa</a></li>	
+	  <li class="nav-item" ng-class="{ active: isActive('/fll')}"><a class="nav-link" href="#/fll">FLL</a></li>
+	  <li class="nav-item" ng-class="{ active: isActive('/flljr')}"><a class="nav-link" href="#/flljr">FLL Jr.</a></li>
+	  <li class="nav-item" ng-class="{ active: isActive('/wro')}"><a class="nav-link" href="#/wro">WRO</a></li>
+	  <li class="nav-item" ng-class="{ active: isActive('/ybi')}"><a class="nav-link" href="#/ybi">Yılın Bilim İnsanı</a></li>
+	  <li class="nav-item" ng-class="{ active: isActive('/volunteers')}"><a class="nav-link" href="#/volunteers">Gönüllüler</a></li>
+	  <li class="nav-item" ng-class="{ active: isActive('/coaches')}"><a class="nav-link" href="#/coaches">Koçlar</a></li>		
+	  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Diğer</a>
+		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			<a class="dropdown-item" href="#/admins">Yöneticiler</a>
+			<a class="dropdown-item" href="#/password">Şifre Değiştir</a>
+			<a class="dropdown-item" href="#/season">Aktif Dönem</a>
+			<a class="dropdown-item" href="#/schools">Okullar</a>
+        </div>
+	  </li>	
+	</ul>
+	<ul class="navbar-nav navbar-right" ng-controller="logoutController">
+		<li class="nav-item"><a class="nav-link" href="">{{loggedInUser}}</a></li>
+	  <li class="nav-item"><a class="nav-link" (click)="onLogout()" *ngIf="isLoggedIn$ | async">Log Out</a></li>
+	</ul>		
+</nav>
